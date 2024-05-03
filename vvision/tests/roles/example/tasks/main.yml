@@ -1,0 +1,10 @@
+---
+
+- name: "Is secret available"
+  fail:
+    msg: "Error cannot find secret_data"
+  when: (secret_data is not defined) or (secret_data|length == 0)
+
+- name: The response to the question is
+  debug:
+    msg: "{{ secret_data }}"

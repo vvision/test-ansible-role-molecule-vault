@@ -1,0 +1,7 @@
+---
+- name: Verify
+  hosts: all
+  tasks:
+    - name: Add some verification tasks here
+      debug:
+        msg: "Nothing to do !"

@@ -1,0 +1,7 @@
+- name: Example playbooks
+  hosts: localhost
+  vars:
+  tasks:
+  - name: Configure homebrew-path
+    ansible.builtin.include_role:
+      name: vvision.tests.example

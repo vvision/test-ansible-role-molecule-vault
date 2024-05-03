@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: vvision.tests.example
+      vars:
+        # Loaded from group_vars/all vault
+        # secret_data: 

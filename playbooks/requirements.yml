@@ -1,0 +1,10 @@
+---
+collections:
+  # From git
+  # - name: https://github.com/vvision/test-ansible-role-molecule-vault.git
+  #   type: git
+  #   # version: devel
+
+  # directory containing the collection
+  - source: ../vvision/tests
+    type: dir

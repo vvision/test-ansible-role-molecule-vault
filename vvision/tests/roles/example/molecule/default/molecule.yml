@@ -1,0 +1,28 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: podman
+# lint: |
+#  set -e
+#  yamllint . # brew install yamllint
+#  ansible-lint
+platforms:
+  - name: instance
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-debian10}-ansible:latest
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+provisioner:
+  name: ansible
+  config_options:
+    defaults:
+      # Stored at the root of the git project directory
+      vault_password_file: ${MOLECULE_SCENARIO_DIRECTORY}/../../../../../../vault.pw
+  inventory:
+    links:
+      group_vars: ${MOLECULE_SCENARIO_DIRECTORY}/../../../../../../playbooks/group_vars/
+verifier:
+  name: ansible
